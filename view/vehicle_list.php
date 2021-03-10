@@ -31,12 +31,12 @@
 <form action = "." method="get">
     <input type="hidden" name="action" value = "get_type">
     <select class="select-box" name="type_id">
-        <option value ="0">View All Types</option>
+        <option value ="0">View All Types</option selected>
         <?php foreach ($types as $type) : ?>
             <?php if ($type_id == $type['ID']) { ?>
-            <option value="<?= $type['ID']?>" selected>
+            <option value="<?= $type['ID']?>" >
             <?php } else { ?>
-            <option value ="<?=$type['ID']?>" selected>
+            <option value ="<?=$type['ID']?>">
             <?php }?>
             <?= $type['Type'] ?>
             </option>
@@ -57,7 +57,7 @@
             <?php } else { ?>
             <option value ="<?=$class['ID']?>">
             <?php }?>
-            <?= $class['class'] ?>
+            <?= $class['Class'] ?>
             </option>
         <?php endforeach; ?>
     </select>

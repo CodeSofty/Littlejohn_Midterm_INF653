@@ -3,13 +3,11 @@
 
 // Get Selection for Types
 
-function get_types($type_id) {
+function get_types() {
     global $db;
 
-$query = 'SELECT * FROM types
-    WHERE ID = :type_id';
+$query = 'SELECT * FROM types';
 $statement = $db->prepare($query);
-$statement->bindValue(':type_id', $type_id);
 $statement->execute();
 $results = $statement->fetchALL();
 $statement->closeCursor();

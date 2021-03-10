@@ -46,37 +46,37 @@ switch($action) {
 
     case "get_make":
         // Write function to grab the data based on the ID
-        $vehicles = get_vehicles();
-        $makes = get_makes($make_id);
-        $types = get_types($type_id);
-        $classes = get_classes($class_id);
+        $vehicles = get_vehicles_by_make($make_id);
+        $makes = get_makes();
+        $types = get_types();
+        $classes = get_classes();
         include('view/vehicle_list.php');
         break;
 
 
         case "get_class":
-        $vehicles = get_vehicles();
-        $makes = get_makes($make_id);
-        $types = get_types($type_id);
-        $classes = get_classes($class_id);
+        $vehicles = get_vehicles_by_class($class_id);
+        $makes = get_makes();
+        $types = get_types();
+        $classes = get_classes();
         include('view/vehicle_list.php');
         break;
 
 
         case "get_type": 
-        $vehicles = get_vehicles();
-        $makes = get_makes($make_id);
-        $types = get_types($type_id);
-        $classes = get_classes($class_id);
+        $vehicles = get_vehicles_by_type($type_id);
+        $makes = get_makes();
+        $types = get_types();
+        $classes = get_classes();
         include('view/vehicle_list.php');
         break;
 
 
     default:
         $vehicles = get_vehicles();
-        $makes = get_makes($make_id);
-        $types = get_types($type_id);
-        $classes = get_classes($class_id);
+        $makes = get_makes();
+        $types = get_types();
+        $classes = get_classes();
 
         include('view/vehicle_list.php');
 }

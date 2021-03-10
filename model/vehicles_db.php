@@ -84,7 +84,7 @@ function get_vehicles_by_make($make_id){
 function get_vehicles_by_type($type_id){
 
     if(!$type_id) {
-        return "All Makes";
+        return "All Types";
     }
     global $db;
     $query = 'SELECT vehicles.year, vehicles.model, vehicles.price, types.type, classes.class, makes.make, makes.ID FROM vehicles 
