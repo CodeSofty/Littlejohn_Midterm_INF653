@@ -8,7 +8,11 @@ require('../model/types_db.php');
 require('../model/vehicles_db.php');
 
 
+
 $type_name = filter_input(INPUT_POST, 'type_name', FILTER_SANITIZE_STRING);
+$class_name = filter_input(INPUT_POST, 'class_name', FILTER_SANITIZE_STRING);
+$make_name = filter_input(INPUT_POST, 'make_name', FILTER_SANITIZE_STRING);
+$vehicle_name = filter_input(INPUT_POST, 'vehicle_name', FILTER_SANITIZE_STRING);
 
 
 $make_id = filter_input(INPUT_POST, 'make_id', FILTER_VALIDATE_INT);
@@ -40,25 +44,28 @@ if(!$action) {
 
 
 if(!$action) {
+    $action = "list_vehicles";
+} 
+
+if($action == "list_vehicles" || $action == "delete_vehicle" || $action == "add_vehicle") {
     include('controllers/vehicles.php');
-} 
+}
 
-if($action == "list_types" || "add_type" || "delete_type") {
+if($action == "list_types" || $action == "delete_type" || $action == "add_type") {
     include('controllers/types.php');
-} 
+}
 
-
-if ($action == "list_makes" || "add_make" || "delete_make") {
+if ($action == "list_makes" || $action ==  "add_make" || $action ==  "delete_make") {
     include('controllers/makes.php');
 } 
 
-if ($action == "list_classes" || "add_class" || "delete_class") {
+if ($action == "list_classes" || $action ==  "add_class" || $action ==  "delete_class") {
     include('controllers/classes.php');
 }
 
 
 ?>
-
+<p><a href=".?action=add_vehicle">Add Vehicle</a></p>
 <p><a href=".?action=list_types">View/Edit Types</a></p>
 <p><a href=".?action=list_makes">View/Edit Makes</a></p>
 <p><a href=".?action=list_classes">View/Edit Classes</a></p>

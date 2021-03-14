@@ -19,6 +19,37 @@ switch($action) {
         include('view/vehicle_list.php');
         break;
 
+
+
+
+    case "add_make": 
+        try {
+        add_make($make_name);
+
+        }catch(PDOexception $e) {
+            $e.showMessage();
+            $message = "Please enter a make name";
+            include('view/error.php');
+        }
+
+        header('Location: .?action=list_makes');
+        break;
+    
+    case "delete_make":
+        if($make_id) {
+            try{
+                delete_make($make_id);
+            }catch(PDOexception $e) {
+                $e.showMessage();
+                $message = "make_id is not valid, cannot delete without a valid make_id";
+                include('view/error.php');
+                exit();
+            }
+            header('Location: .?action=list_makes');
+
+        }
+        break;
+
 }
 
 

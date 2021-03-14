@@ -32,8 +32,8 @@
         <td><?php echo $class['Class']; ?></td>
         <td>  <form action="." method="post">
                 <input type="hidden" name="action" value="delete_class">
-                <input type="hidden" name="class_id" value="<?= $class['Class']?>">
-                <button type="button" class="btn btn-danger">Remove</button>
+                <input type="hidden" name="class_id" value="<?= $class['ID']?>">
+                <button type="submit" class="btn btn-danger">Remove</button>
             </form></td>
         </tr>
         <?php endforeach; ?>
@@ -43,13 +43,13 @@
 
 <section id="add" class="add">
     <h2>Add Class:</h2>
-    <form action="./controllers/types.php" method="post" id="add__form" class="add__form">
+    <form action="." method="post" id="add__form" class="add__form">
         <input type="hidden" name="action" value="add_class">
         <div class="add__inputs">
             <label>Class Name:</label>
             <input type="text" name="class_name" maxlength 20 autofocus required>
         </div>
-        <div class="add__type">
+        <div class="add__class">
             <button type="submit" class="add-button bold">Add Class</button>
         </div>
     </form>

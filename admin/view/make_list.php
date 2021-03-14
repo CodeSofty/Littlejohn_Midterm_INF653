@@ -17,14 +17,30 @@
         <td><?php echo $make['Make']; ?></td>
         <td>  <form action="." method="post">
                 <input type="hidden" name="action" value="delete_make">
-                <input type="hidden" name="make_id" value="<?= $make['Make']?>">
-                <button type="button" class="btn btn-danger">Remove</button>
+                <input type="hidden" name="make_id" value="<?= $make['ID']?>">
+                <button type="submit" class="btn btn-danger">Remove</button>
             </form></td>
         </tr>
         <?php endforeach; ?>
     </tbody>
     </table>
 
+
+
+
+    <section id="add" class="add">
+    <h2>Add Make:</h2>
+    <form action="." method="post" id="add__form" class="add__form">
+        <input type="hidden" name="action" value="add_make">
+        <div class="add__inputs">
+            <label>Make Name:</label>
+            <input type="text" name="make_name" maxlength 20 autofocus required>
+        </div>
+        <div class="add__make">
+            <button type="submit" class="add-button bold">Add Make</button>
+        </div>
+    </form>
+</section>
 
 
 <?php include('footer.php');?>

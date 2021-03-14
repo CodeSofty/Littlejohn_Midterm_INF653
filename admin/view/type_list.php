@@ -33,14 +33,13 @@
         <td><?php echo $type['Type']; ?></td>
         <td>  <form action="." method="post">
                 <input type="hidden" name="action" value="delete_type">
-                <input type="hidden" name="type_id" value="<?= $type['Type']?>">
-                <button type="button" class="btn btn-danger">Remove</button>
+                <input type="hidden" name="type_id" value="<?= $type['ID']?>">
+                <button type="submit" class="btn btn-danger">Remove</button>
             </form></td>
         </tr>
         <?php endforeach; ?>
     </tbody>
     </table>
-
 
 <section id="add" class="add">
     <h2>Add Type:</h2>

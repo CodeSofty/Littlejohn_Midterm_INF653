@@ -91,7 +91,12 @@
         <td><?php echo $vehicle['type']; ?></td>
         <td><?php echo $vehicle['class']; ?></td>
         <td><?php echo $vehicle['price']; ?></td>
-        <td> <button type="button" class="btn btn-danger">Remove</button></td>
+
+        <td>  <form action="." method="post">
+                <input type="hidden" name="action" value="delete_vehicle">
+                <input type="hidden" name="vehicle_id" value="<?= $vehicle['vehicle_ID']?>">
+                <button type="submit" class="btn btn-danger">Remove</button>
+            </form></td>
         </tr>
         <?php endforeach; ?>
     </tbody>
