@@ -4,7 +4,7 @@
 function get_vehicles(){
     global $db;
 
-    $query = 'SELECT vehicles.year, vehicles.model, vehicles.price, types.type, classes.class, makes.make FROM vehicles 
+    $query = 'SELECT vehicles.vehicle_ID, vehicles.year, vehicles.model, vehicles.price, types.type, classes.class, makes.make FROM vehicles 
     INNER JOIN types
     ON vehicles.type_id = types.id
     INNER JOIN classes
@@ -104,5 +104,18 @@ function get_vehicles_by_type($type_id){
 }
 
 
+
+
+
+
+function delete_vehicle($vehicle_ID) {
+    global $db;
+    $query = 'DELETE FROM vehicles
+    WHERE vehicle_ID = :vehicle_ID';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':vehicle_ID', $vehicle_ID);
+    $statement->execute();
+    $statement->closeCursor();
+}
 
 ?>
