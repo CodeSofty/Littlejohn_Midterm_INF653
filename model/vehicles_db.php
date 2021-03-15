@@ -119,12 +119,12 @@ function add_vehicle($year, $price, $type_id, $class_id, $make_id, $model)
 
 
 
-function delete_vehicle($vehicle_ID) {
+function delete_vehicle($vehicle_id) {
     global $db;
     $query = 'DELETE FROM vehicles
-    WHERE vehicle_ID = :vehicle_ID';
+    WHERE vehicle_id = :vehicle_id';
     $statement = $db->prepare($query);
-    $statement->bindValue(':vehicle_ID', $vehicle_ID);
+    $statement->bindValue(':vehicle_id', $vehicle_id);
     $statement->execute();
     $statement->closeCursor();
 }

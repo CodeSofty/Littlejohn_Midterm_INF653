@@ -8,8 +8,8 @@
         <input type="hidden" name="action" value="add_vehicle">
 
 
-        <input type="hidden" name="action" value = "get_make">
-    <select class="select-box" name="make_id">
+
+    <select class="select-box" name="make_id" required>
         <option value ="0">View All Makes</option>
         <?php foreach ($makes as $make) : ?>
             <?php if ($make_id == $make['ID']) { ?>
@@ -20,11 +20,14 @@
             <?= $make['Make'] ?>
             </option>
         <?php endforeach; ?>
+        </select>
+
+        <br>
 
 
 
-        <input type="hidden" name="action" value = "get_type">
-    <select class="select-box" name="type_id">
+
+    <select class="select-box" name="type_id" required>
         <option value ="0">View All Types</option selected>
         <?php foreach ($types as $type) : ?>
             <?php if ($type_id == $type['ID']) { ?>
@@ -35,11 +38,13 @@
             <?= $type['Type'] ?>
             </option>
         <?php endforeach; ?>
+        </select>
+
+        <br>
 
 
 
-        <input type="hidden" name="action" value = "get_class">
-    <select class="select-box" name="class_id">
+    <select class="select-box" name="class_id" required>
         <option value ="0">View All Classes</option>
         <?php foreach ($classes as $class) : ?>
             <?php if ($class_id == $class['ID']) { ?>
@@ -50,15 +55,19 @@
             <?= $class['Class'] ?>
             </option>
         <?php endforeach; ?>
+        </select>
+        <br>
 
 
 
 
         <div class="add__inputs">
             <label>Year:</label>
-            <input type="text" name="vehicle_year" maxlength 20 autofocus required>
+            <input type="text" name="vehicle_year" maxlength 20 autofocus required> 
+            <br>
             <label>Model:</label>
             <input type="text" name="vehicle_model" maxlength 20 autofocus required>
+            <br>
             <label>Price:</label>
             <input type="text" name="vehicle_price" maxlength 20 autofocus required>
         </div>

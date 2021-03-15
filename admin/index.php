@@ -22,6 +22,7 @@ $type_name = filter_input(INPUT_POST, 'type_name', FILTER_SANITIZE_STRING);
 $class_name = filter_input(INPUT_POST, 'class_name', FILTER_SANITIZE_STRING);
 $make_name = filter_input(INPUT_POST, 'make_name', FILTER_SANITIZE_STRING);
 $vehicle_name = filter_input(INPUT_POST, 'vehicle_name', FILTER_SANITIZE_STRING);
+$vehicle_id = filter_input(INPUT_POST, 'vehicle_id', FILTER_VALIDATE_INT);
 
 $year = filter_input(INPUT_POST, 'vehicle_year', FILTER_VALIDATE_INT);
 $model = filter_input(INPUT_POST, 'vehicle_model', FILTER_SANITIZE_STRING); 

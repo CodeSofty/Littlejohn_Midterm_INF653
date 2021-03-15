@@ -1,23 +1,5 @@
 <?php include('header.php');?>
 
-<form action = "." method="get">
-    <input type="hidden" name="action" value = "get_classes">
-    <select class="select-box" name="class_id">
-        <option value ="0">View All Classes</option selected>
-        <?php foreach ($classes as $class) : ?>
-            <?php if ($class_id == $class['ID']) { ?>
-            <option value="<?= $class['ID']?>" >
-            <?php } else { ?>
-            <option value ="<?=$class['ID']?>">
-            <?php }?>
-            <?= $class['Class'] ?>
-            </option>
-        <?php endforeach; ?>
-    </select>
-    <button>Go</button>
-</form>
-
-
 
 <table class="table table-info table-striped table-hover table-bordered">
     <caption>Zippy Used Auto Inventory</caption>

@@ -37,14 +37,14 @@ switch($action) {
         }
         break;
 
-
     case "get_type": 
         $vehicles = get_vehicles_by_type($type_id);
         $makes = get_makes();
         $types = get_types();
         $classes = get_classes();
         include('view/vehicle_list.php');
-        break;   
+    break;
+    
 
 }
 

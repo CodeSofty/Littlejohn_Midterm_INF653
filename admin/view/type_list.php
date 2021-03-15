@@ -1,24 +1,6 @@
 
 <?php include('header.php');?>
 
-<form action = "." method="get">
-    <input type="hidden" name="action" value = "get_type">
-    <select class="select-box" name="type_id">
-        <option value ="0">View All Types</option selected>
-        <?php foreach ($types as $type) : ?>
-            <?php if ($type_id == $type['ID']) { ?>
-            <option value="<?= $type['ID']?>" >
-            <?php } else { ?>
-            <option value ="<?=$type['ID']?>">
-            <?php }?>
-            <?= $type['Type'] ?>
-            </option>
-        <?php endforeach; ?>
-    </select>
-    <button>Go</button>
-</form>
-
-
 
 <table class="table table-info table-striped table-hover table-bordered">
     <caption>Zippy Used Auto Inventory</caption>

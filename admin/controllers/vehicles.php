@@ -22,7 +22,6 @@ switch($action) {
             break;
 
         case "add_vehicle": 
-            $vehicles = get_vehicles();
             $makes = get_makes();
             $types = get_types();
             $classes = get_classes();
@@ -45,9 +44,9 @@ switch($action) {
 
     
         case "delete_vehicle":
-            if($type_id) {
+            if($vehicle_id) {
                 try{
-                    delete_type($type_id);
+                    delete_vehicle($vehicle_id);
                 }catch(PDOexception $e) {
                     $e.showMessage();
                     $message = "vehicle_id is not valid, cannot delete without a valid vehicle_id";
