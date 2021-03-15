@@ -54,6 +54,8 @@
         </div>
     </form>
 </section>
-
-<p><a href=".">View/Add Vehicles</a></p>
+<p><a href=".?action=add_vehicle">Add Vehicle</a></p>
+<p><a href=".?action=list_types">View/Edit Types</a></p>
+<p><a href=".?action=list_makes">View/Edit Makes</a></p>
+<p><a href=".?action=list_classes">View/Edit Classes</a></p>
 <?php include('footer.php');?>

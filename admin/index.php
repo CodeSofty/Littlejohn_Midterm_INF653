@@ -1,3 +1,12 @@
+<!-- Get select menus at top working, do some CSS work,  and then turn in 
+ Need to write functions to get by type_id, make_id, etc for each menu selector
+ Need to sort by year/price
+ Clean up links so they're not redundant
+ -->
+
+
+
+
 <?php
 //require models
 
@@ -13,6 +22,10 @@ $type_name = filter_input(INPUT_POST, 'type_name', FILTER_SANITIZE_STRING);
 $class_name = filter_input(INPUT_POST, 'class_name', FILTER_SANITIZE_STRING);
 $make_name = filter_input(INPUT_POST, 'make_name', FILTER_SANITIZE_STRING);
 $vehicle_name = filter_input(INPUT_POST, 'vehicle_name', FILTER_SANITIZE_STRING);
+
+$year = filter_input(INPUT_POST, 'vehicle_year', FILTER_VALIDATE_INT);
+$model = filter_input(INPUT_POST, 'vehicle_model', FILTER_SANITIZE_STRING); 
+$price = filter_input(INPUT_POST, 'vehicle_price', FILTER_VALIDATE_INT);
 
 
 $make_id = filter_input(INPUT_POST, 'make_id', FILTER_VALIDATE_INT);
@@ -51,21 +64,17 @@ if($action == "list_vehicles" || $action == "delete_vehicle" || $action == "add_
     include('controllers/vehicles.php');
 }
 
-if($action == "list_types" || $action == "delete_type" || $action == "add_type") {
+if($action == "list_types" || $action == "delete_type" || $action == "add_type" || $action == "get_type") {
     include('controllers/types.php');
 }
 
-if ($action == "list_makes" || $action ==  "add_make" || $action ==  "delete_make") {
+if ($action == "list_makes" || $action ==  "add_make" || $action ==  "delete_make" || $action == "get_make") {
     include('controllers/makes.php');
 } 
 
-if ($action == "list_classes" || $action ==  "add_class" || $action ==  "delete_class") {
+if ($action == "list_classes" || $action ==  "add_class" || $action ==  "delete_class" || $action == "get_class") {
     include('controllers/classes.php');
 }
 
 
 ?>
-<p><a href=".?action=add_vehicle">Add Vehicle</a></p>
-<p><a href=".?action=list_types">View/Edit Types</a></p>
-<p><a href=".?action=list_makes">View/Edit Makes</a></p>
-<p><a href=".?action=list_classes">View/Edit Classes</a></p>
