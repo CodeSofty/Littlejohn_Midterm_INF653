@@ -1,6 +1,4 @@
-<!-- Get select menus at top working, do some CSS work,  and then turn in 
- Need to write functions to get by type_id, make_id, etc for each menu selector
- Need to sort by year/price
+<!-- 
  Clean up links so they're not redundant
  -->
 
