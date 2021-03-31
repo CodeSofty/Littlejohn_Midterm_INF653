@@ -1,4 +1,12 @@
 <?php
+
+// Start session management with persistent cookie
+
+$lifetime = 60 * 60 * 24 * 14; // 2 weeks in seconds
+session_set_cookie_params($lifetime, '/');
+session_start();
+
+
 //require models
 
 require('model/database.php');
@@ -9,10 +17,7 @@ require('model/vehicles_db.php');
 
 
 
-// get required data from models (makes types classes)
-// Get parameter data from forms
-// Get data for view (make,type,class in the drop down menus)
-// Show view
+// Data From Forms
 
 $make_id = filter_input(INPUT_POST, 'make_id', FILTER_VALIDATE_INT);
 if(!$make_id) {
@@ -32,8 +37,17 @@ if(!$class_id) {
     $class_id = filter_input(INPUT_GET, 'class_id', FILTER_VALIDATE_INT); 
 }
 
-//List all possible vehicles
-// Make sure parameter is capitalized like $result['Make'] and $result['ID'] or it won't work
+
+// Setting Session Variable for Registeration
+
+$firstname = filter_input(INPUT_GET, 'firstname', FILTER_SANITIZE_STRING);
+if(isset($firstname)) {
+
+    $_SESSION["userid"] = $firstname;
+}
+
+
+// Get action from forms if available
 
 $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
 
@@ -44,8 +58,17 @@ if(!$action) {
 
 switch($action) {
 
+// Actions
+
+    case "list_vehicles":
+        $vehicles = get_vehicles();
+        $makes = get_makes();
+        $types = get_types();
+        $classes = get_classes();
+        include('view/vehicle_list.php');
+        break;
+
     case "get_make":
-        // Write function to grab the data based on the ID
         $vehicles = get_vehicles_by_make($make_id);
         $makes = get_makes();
         $types = get_types();
@@ -71,14 +94,24 @@ switch($action) {
         include('view/vehicle_list.php');
         break;
 
+// Registration and Logout
 
+        case "register":
+            include('view/register.php');
+        break;
+
+        case "logout":
+            include('view/logout.php');
+        break;
+
+
+// List All Vehicles if no Action is Sent
     default:
-        $vehicles = get_vehicles();
-        $makes = get_makes();
-        $types = get_types();
-        $classes = get_classes();
-
-        include('view/vehicle_list.php');
+            $vehicles = get_vehicles();
+            $makes = get_makes();
+            $types = get_types();
+            $classes = get_classes();
+            include('view/vehicle_list.php');
 }
 
 ?>
